@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import BurguerButton from './BurguerButton'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
 
@@ -21,11 +22,11 @@ function Navbar() {
         <NavContainer>
             <h2>Liga de tenis <span>Málaga</span></h2>
             <div className={`links ${clicked ? 'active' : ''}`}>
-                <a onClick={handleClick} href="#h">Home</a>
-                <a onClick={handleClick} href="#h">Shop</a>
-                <a onClick={handleClick} href="#h">About</a>
-                <a onClick={handleAccessClick} href="#h">Acceso</a>
-                {userLoged && <a onClick={handleClick} href="#h">Subir resultados</a>}
+                <Link onClick={handleClick} to="/" href="#h">Home</Link>
+                <Link onClick={handleClick} to="/clasif" href="#h">Clasificaciones</Link>
+                <Link onClick={handleClick} to="/jornadas" href="#h">Jornadas</Link>
+                <Link onClick={handleAccessClick} to="/acceso" href="#h">Acceso</Link>
+                {userLoged && <Link onClick={handleClick} to="/upload-results" href="#h">Subir resultados</Link>}
             </div>
             <div className='burguer'>
                 <BurguerButton clicked={clicked} handleClick={handleClick} />
