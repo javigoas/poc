@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/clasif" element={<Clasificaciones/>} />
           <Route path="/jornadas" element={<Jornadas/>} />
-          <Route path="/accesso" element={<Acceso/>} />
+          <Route path="/acceso" element={<Acceso/>} />
           <Route path="/upload-results" element={<UploadResults/>} />
         </Routes>
       </StyledWrapper>

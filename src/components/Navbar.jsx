@@ -2,20 +2,23 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import BurguerButton from './BurguerButton'
 import { Link } from 'react-router-dom'
+import { isMobile } from 'react-device-detect';
 
 function Navbar() {
 
    const [clicked, setClicked] = useState(false)
+   const [userLoged, setUserLoged] = useState(false)
    const handleClick = () => {
-       //cuando esta true lo pasa a false y vice versa
-       setClicked(!clicked)
+    //cuando esta true lo pasa a false y vice versa      
+    setClicked(!clicked)
    }
    const handleAccessClick = () => {
     //cuando esta true lo pasa a false y vice versa
-    setUserLoged(!userLoged)
+    setClicked(!clicked)
+    //setUserLoged(!userLoged)    
 }
 
-  const [userLoged, setUserLoged] = useState(false)
+  
 
   return (
     <>
@@ -28,10 +31,12 @@ function Navbar() {
                 <Link onClick={handleAccessClick} to="/acceso" href="#h">Acceso</Link>
                 {userLoged && <Link onClick={handleClick} to="/upload-results" href="#h">Subir resultados</Link>}
             </div>
-            <div className='burguer'>
-                <BurguerButton clicked={clicked} handleClick={handleClick} />
-            </div>
-        <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
+            
+               <div className='burguer'>
+                 <BurguerButton clicked={clicked} handleClick={handleClick} />
+               </div>
+            
+            <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
         </NavContainer>
     </>
   )
@@ -83,25 +88,28 @@ const NavContainer = styled.nav`
     }
   }
   .links.active{
-    width: 100%;
-    display: block;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    top: 30%;
-    left: 0;
-    right: 0;
-    text-align: center;
-    a{
-      font-size: 2rem;
-      margin-top: 1rem;
-      color: white;
+    @media(max-width: 768px){
+      width: 100%;
+      display: block;
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      top: 30%;
+      left: 0;
+      right: 0;
+      text-align: center;
+      a{
+        font-size: 2rem;
+        margin-top: 1rem;
+        color: white;
+      }
     }
   }
   .burguer{
     @media(min-width: 768px){
       display: none;
     }
+    z-index: 0;
   }
 `
 
@@ -116,10 +124,12 @@ const BgDiv = styled.div`
   transition: all .6s ease ;
   
   &.active{
-    border-radius: 0 0 80% 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    @media(max-width: 768px){
+      border-radius: 0 0 80% 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 `
