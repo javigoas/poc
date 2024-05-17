@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import FlagProvider from './contexts/FlagProvider'; // Importa el FlagProvider
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <FlagProvider>
     <App />
+    </FlagProvider>
   </React.StrictMode>
 );
 

@@ -2,24 +2,18 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import BurguerButton from './BurguerButton'
 import { Link } from 'react-router-dom'
-import { isMobile } from 'react-device-detect';
 
 function Navbar() {
 
    const [clicked, setClicked] = useState(false)
-   const [userLoged, setUserLoged] = useState(false)
+   //const [userLoged, setUserLoged] = useState(false)
+   
    const handleClick = () => {
     //cuando esta true lo pasa a false y vice versa      
     setClicked(!clicked)
    }
-   const handleAccessClick = () => {
-    //cuando esta true lo pasa a false y vice versa
-    setClicked(!clicked)
-    //setUserLoged(!userLoged)    
-}
 
-  
-
+   
   return (
     <>
         <NavContainer>
@@ -28,8 +22,7 @@ function Navbar() {
                 <Link onClick={handleClick} to="/" href="#h">Home</Link>
                 <Link onClick={handleClick} to="/clasif" href="#h">Clasificaciones</Link>
                 <Link onClick={handleClick} to="/jornadas" href="#h">Jornadas</Link>
-                <Link onClick={handleAccessClick} to="/acceso" href="#h">Acceso</Link>
-                {userLoged && <Link onClick={handleClick} to="/upload-results" href="#h">Subir resultados</Link>}
+                <Link onClick={handleClick} to="/login-modal" href="#h">Login</Link>                
             </div>
             
                <div className='burguer'>

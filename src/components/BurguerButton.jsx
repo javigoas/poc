@@ -18,6 +18,7 @@ function BurguerButton(props) {
 export default BurguerButton
 
 const Burguer = styled.div`
+z-index: 5;
   /* nav-icon-5 */
 .nav-icon-5{
   width: 35px;
