@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
 import { Avatar, List } from 'antd';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
+const customDiv = styled.div`
+  z-index:1
+`
 
 const data = [
   {
@@ -17,11 +23,14 @@ const data = [
 ];
 
 export class Home extends Component {
-  static propTypes = {}
+  static propTypes = {
+    clicked: PropTypes.bool,
+  }
 
   render() {
+    
     return (
-      <div>
+      <customDiv>
         <List
           itemLayout="horizontal"
           dataSource={data}
@@ -35,7 +44,7 @@ export class Home extends Component {
             </List.Item>
           )}
         />
-      </div>
+      </customDiv>
     )
   }
 }

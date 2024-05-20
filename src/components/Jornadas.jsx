@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Table } from 'antd';
 import type { TableColumnsType } from 'antd';
+import styled from 'styled-components';
 
 interface DataType {
   key: React.Key;
@@ -8,6 +9,10 @@ interface DataType {
   age: number;
   address: string;
 }
+
+const customDiv = styled.div`
+  z-index:1
+`
 
 const columns: TableColumnsType<DataType> = [
   {
@@ -62,7 +67,7 @@ export class Jornadas extends Component {
 
   render() {
     return (
-      <div><Table columns={columns} dataSource={data} scroll={{ x: 1300 }} pagination={false} bordered /></div>
+      <customDiv><Table columns={columns} dataSource={data} scroll={{ x: 1300 }} pagination={false} bordered /></customDiv>
     )
   }
 }

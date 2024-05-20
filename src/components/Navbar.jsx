@@ -15,7 +15,7 @@ function Navbar() {
 
    
   return (
-    <>
+    <customDiv>
         <NavContainer>
             <h2>Liga de tenis <span>Málaga</span></h2>
             <div className={`links ${clicked ? 'active' : ''}`}>
@@ -31,13 +31,18 @@ function Navbar() {
             
             <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
         </NavContainer>
-    </>
+    </customDiv>
   )
 }
 
 export default Navbar
 
+const customDiv = styled.div`
+  z-index:0
+`
+
 const NavContainer = styled.nav`
+  z-index:-1;
   h2{
     color: white;
     font-weight: 400;
@@ -102,7 +107,6 @@ const NavContainer = styled.nav`
     @media(min-width: 768px){
       display: none;
     }
-    z-index: 0;
   }
 `
 
