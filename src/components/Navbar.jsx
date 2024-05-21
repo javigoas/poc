@@ -15,7 +15,7 @@ function Navbar() {
 
    
   return (
-    <customDiv>
+    <CustomDiv>        
         <NavContainer>
             <h2>Liga de tenis <span>Málaga</span></h2>
             <div className={`links ${clicked ? 'active' : ''}`}>
@@ -25,24 +25,23 @@ function Navbar() {
                 <Link onClick={handleClick} to="/login-modal" href="#h">Login</Link>                
             </div>
             
-               <div className='burguer'>
-                 <BurguerButton clicked={clicked} handleClick={handleClick} />
-               </div>
+            <div className='burguer'>
+              <BurguerButton clicked={clicked} handleClick={handleClick} />
+            </div>
             
             <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
         </NavContainer>
-    </customDiv>
+    </CustomDiv>
   )
 }
 
 export default Navbar
 
-const customDiv = styled.div`
-  z-index:0
+const CustomDiv = styled.div`
+  z-index:6
 `
 
 const NavContainer = styled.nav`
-  z-index:-1;
   h2{
     color: white;
     font-weight: 400;
@@ -83,6 +82,7 @@ const NavContainer = styled.nav`
         display: inline;
       }
       display: block;
+      z-index:5;
     }
   }
   .links.active{
@@ -101,12 +101,14 @@ const NavContainer = styled.nav`
         margin-top: 1rem;
         color: white;
       }
+      z-index:5;
     }
   }
   .burguer{
     @media(min-width: 768px){
       display: none;
     }
+    z-index:5;
   }
 `
 
@@ -117,7 +119,6 @@ const BgDiv = styled.div`
   left: -1000px;
   width: 100%;
   height: 100%;
-  z-index: -1;
   transition: all .6s ease ;
   
   &.active{
@@ -127,6 +128,7 @@ const BgDiv = styled.div`
       left: 0;
       width: 100%;
       height: 100%;
+      z-index:4;
     }
   }
 `

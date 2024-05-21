@@ -3,50 +3,54 @@ import { Avatar, List } from 'antd';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const customDiv = styled.div`
-  z-index:1
-`
-
 const data = [
   {
-    title: 'Ant Design Title 1',
+    title: 'Partido cerrado',
+    description: 'Alberto Ariza jugara como local contra Mario Zumaquero el 15/06/24 a las 18:30 en Inacua',
+    avatar: 8
   },
   {
-    title: 'Ant Design Title 2',
+    title: 'Partido jugado',
+    description: 'Alex Molina vence por 6-2 6-4 a Felipe Garcia',
+    avatar: 2
   },
   {
-    title: 'Ant Design Title 3',
+    title: 'Partido jugado',
+    description: 'Mario Ayudarte vence por 6-3 6-3 a Enrique Moreno',
+    avatar: 3
   },
   {
-    title: 'Ant Design Title 4',
+    title: 'Partido cerrado',
+    description: 'Ricardo Soares jugara como local contra Javi Godino el 21/06/24 a las 18:30 en Inacua',
+    avatar: 5
   },
 ];
 
-export class Home extends Component {
-  static propTypes = {
-    clicked: PropTypes.bool,
-  }
-
-  render() {
-    
-    return (
-      <customDiv>
-        <List
-          itemLayout="horizontal"
-          dataSource={data}
-          renderItem={(item, index) => (
-            <List.Item>
-              <List.Item.Meta
-                avatar={<Avatar src={`https://api.dicebear.com/7.x/miniavs/svg?seed=${index}`} />}
-                title={<a href="https://ant.design">{item.title}</a>}
-                description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-              />
-            </List.Item>
-          )}
-        />
-      </customDiv>
-    )
-  }
+const Home = () =>  {
+  return (
+    <CustomHomeDiv>
+      <List
+        itemLayout="horizontal"
+        dataSource={data}
+        renderItem={(item, index) => (
+          <List.Item>
+            <List.Item.Meta
+              avatar={<Avatar src={`https://api.dicebear.com/7.x/miniavs/svg?seed=${item.avatar}`} />}
+              title={<h3>{item.title}</h3>}
+              description={item.description}
+            />
+          </List.Item>
+        )}
+      />
+    </CustomHomeDiv>
+  )
 }
 
 export default Home
+
+const CustomHomeDiv = styled.div`
+  padding-left: 1rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  z-index:1
+`

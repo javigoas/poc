@@ -10,8 +10,8 @@ interface DataType {
   address: string;
 }
 
-const customDiv = styled.div`
-  z-index:1
+const CustomJorDiv = styled.div`
+  z-index:-1
 `
 
 const columns: TableColumnsType<DataType> = [
@@ -62,14 +62,11 @@ const data: DataType[] = [
   },
 ];
 
-export class Jornadas extends Component {
-  static propTypes = {}
-
-  render() {
-    return (
-      <customDiv><Table columns={columns} dataSource={data} scroll={{ x: 1300 }} pagination={false} bordered /></customDiv>
-    )
-  }
+const Jornadas = () =>  {
+  return (
+    <CustomJorDiv><Table columns={columns} dataSource={data} scroll={{ x: 1300 }} pagination={false} bordered /></CustomJorDiv>
+)
 }
+
 
 export default Jornadas
