@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import FlagContext from '../contexts/FlagContext';
 import styled from 'styled-components';
-import { Space, Table, Tag, Select } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { Table, Tag, Select } from 'antd';
 
 const { Column } = Table;
 
@@ -278,8 +277,6 @@ const Clasificaciones = () => {
     }
     return <span>Selecciona tu liga</span>;
   };
-
-
   
 const uniqueGroups = [...new Set(dataClasif.map(item => item.grupo))]
 

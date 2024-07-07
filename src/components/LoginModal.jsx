@@ -40,20 +40,9 @@ export class LoginModal extends Component {
             />
           </Form.Item>
           <Form.Item>
-            <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox>Remember me</Checkbox>
-            </Form.Item>
-
-            <a className="login-form-forgot" href="">
-              Forgot password
-            </a>
-          </Form.Item>
-
-          <Form.Item>
             <Button type="primary" htmlType="submit" className="login-form-button">
               Log in
-            </Button>
-            Or <a href="">register now!</a>
+            </Button>            
           </Form.Item>
         </Form>
       </div>
